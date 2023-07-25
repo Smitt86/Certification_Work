@@ -9,18 +9,30 @@ Clear();
 string[] array = new string[3];
 GetArray(array);
 PrintArray(array);
+WriteLine();
+NewArray(array);
 
 void GetArray(string[] arr)
 {
-    int i;
     Console.WriteLine("Введите значения массива");
-    for (i = 0; i < arr.Length; i++)
+    for (int i = 0; i < arr.Length; i++)
         arr[i] = Console.ReadLine()!;
 }
 
 void PrintArray(string[] arr)
 {
-    int i;
-    for (i = 0; i < arr.Length; i++)
+    for (int i = 0; i < arr.Length; i++)
         Write($"{arr[i]}, ");
+}
+
+void NewArray(string[] array)
+{
+    string[] arr = new string[array.Length];
+    Write("New array: ");
+    for (int i = 0; i < array.Length; i++)
+        if (array[i].Length <= 3)
+        {
+            arr[i] = array[i];
+            Write($"{arr[i]}, ");
+        }
 }
